@@ -1,16 +1,26 @@
 # Project information
-site_name: REPO_NAME_OR_SITE_NAME
+site_name: The ACM Manipal Blog
 # defeine TOC or order of website-
 nav:
   - Home: index.md
+  - Blogs: Blogs.md
+  - WebDev: WebDev.md
+  - AppDev: AppDev.md
+  - ML&AI: Ml and AI.md
+  - Coding: Coding.md
+  - CommunityService: Community Service.md
+  - Research: Research.md
 
-site_author: Sunny Bhaveen Chandra
+
+site_author: Daksh Dadhania
 site_description: >-
-  DESCRIPTION
+  The ACM Manipal Blog
+  Keep calm and write code.
+  We’ll be putting up helpful and interesting articles written by our members.
 
 # Repository
-repo_name: c17hawke/REPO_NAME
-repo_url: https://github.com/c17hawke/REPO_NAME
+repo_name: github.com/acmmanipal
+repo_url: https://github.com/acmmanipal
 
 # Configuration
 theme:
@@ -39,13 +49,13 @@ theme:
 extra:
   social:
     - icon: fontawesome/brands/github-alt
-      link: https://github.com/c17hawke
-    - icon: fontawesome/brands/twitter
-      link: https://twitter.com/c17hawke
+      link: https://github.com/acmmanipal
+    - icon: fontawesome/brands/medium
+      link: https://medium.com/the-acm-manipal-blog
     - icon: fontawesome/brands/linkedin
-      link: https://linkedin.com/in/c17hawke
+      link: https://www.linkedin.com/school/acm-manipal/mycompany/
     - icon: fontawesome/brands/instagram
-      link: https://www.instagram.com/c17hawke/
+      link: https://www.instagram.com/acm_manipal/
 
 extra_javascript:
   - javascripts/mathjax.js
@@ -70,4 +80,4 @@ plugins:
   - search
 
 copyright: |
-  &copy; 2022 <a href="https://github.com/c17hawke"  target="_blank" rel="noopener">Sunny Bhaveen Chandra</a>
+  &copy; 2022 <a href="https://github.com/acmmanipal"  target="_blank" rel="noopener">ACM Manipal</a>
