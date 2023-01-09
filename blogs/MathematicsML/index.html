@@ -1,0 +1,715 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="The ACM Manipal Blog Keep calm and write code. We’ll be putting up helpful and interesting articles written by our members.">
+      
+      
+        <meta name="author" content="Daksh Dadhania">
+      
+      
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.4.2, mkdocs-material-9.0.3">
+    
+    
+      
+        <title>Mathematics in Machine Learning - The ACM Manipal Blog</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.6b71719e.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.2505c338.min.css">
+      
+      
+
+    
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="teal" data-md-color-accent="purple">
+  
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&"object"==typeof palette.color)for(var key of Object.keys(palette.color))document.body.setAttribute("data-md-color-"+key,palette.color[key])</script>
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#mathematics-in-machine-learning" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="The ACM Manipal Blog" class="md-header__button md-logo" aria-label="The ACM Manipal Blog" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            The ACM Manipal Blog
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Mathematics in Machine Learning
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      <form class="md-header__option" data-md-component="palette">
+        
+          
+          <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="teal" data-md-color-accent="purple"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_1">
+          
+            <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_2" hidden>
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 6H7c-3.31 0-6 2.69-6 6s2.69 6 6 6h10c3.31 0 6-2.69 6-6s-2.69-6-6-6zm0 10H7c-2.21 0-4-1.79-4-4s1.79-4 4-4h10c2.21 0 4 1.79 4 4s-1.79 4-4 4zM7 9c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3z"/></svg>
+            </label>
+          
+        
+          
+          <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="teal" data-md-color-accent="lime"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_2">
+          
+            <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_1" hidden>
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 7H7a5 5 0 0 0-5 5 5 5 0 0 0 5 5h10a5 5 0 0 0 5-5 5 5 0 0 0-5-5m0 8a3 3 0 0 1-3-3 3 3 0 0 1 3-3 3 3 0 0 1 3 3 3 3 0 0 1-3 3Z"/></svg>
+            </label>
+          
+        
+      </form>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/acmmanipal" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.2.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    github.com/acmmanipal
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-tabs__inner md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+
+
+  <li class="md-tabs__item">
+    <a href="../.." class="md-tabs__link">
+      Home
+    </a>
+  </li>
+
+      
+        
+  
+  
+
+
+  <li class="md-tabs__item">
+    <a href="../../Blogs/" class="md-tabs__link">
+      Blogs
+    </a>
+  </li>
+
+      
+        
+  
+  
+
+
+  <li class="md-tabs__item">
+    <a href="../../WebDev/" class="md-tabs__link">
+      WebDev
+    </a>
+  </li>
+
+      
+        
+  
+  
+
+
+  <li class="md-tabs__item">
+    <a href="../../AppDev/" class="md-tabs__link">
+      AppDev
+    </a>
+  </li>
+
+      
+        
+  
+  
+
+
+  <li class="md-tabs__item">
+    <a href="../../MLAI/" class="md-tabs__link">
+      ML&AI
+    </a>
+  </li>
+
+      
+        
+  
+  
+
+
+  <li class="md-tabs__item">
+    <a href="../../Coding/" class="md-tabs__link">
+      Coding
+    </a>
+  </li>
+
+      
+        
+  
+  
+
+
+  <li class="md-tabs__item">
+    <a href="../../Community%20Service/" class="md-tabs__link">
+      CommunityService
+    </a>
+  </li>
+
+      
+        
+  
+  
+
+
+  <li class="md-tabs__item">
+    <a href="../../Research/" class="md-tabs__link">
+      Research
+    </a>
+  </li>
+
+      
+        
+  
+  
+
+
+  <li class="md-tabs__item">
+    <a href="../../ACM%20Gallery/" class="md-tabs__link">
+      Gallery
+    </a>
+  </li>
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+  
+
+
+  
+
+<nav class="md-nav md-nav--primary md-nav--lifted md-nav--integrated" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="The ACM Manipal Blog" class="md-nav__button md-logo" aria-label="The ACM Manipal Blog" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    The ACM Manipal Blog
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/acmmanipal" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.2.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    github.com/acmmanipal
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        Home
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Blogs/" class="md-nav__link">
+        Blogs
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../WebDev/" class="md-nav__link">
+        WebDev
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../AppDev/" class="md-nav__link">
+        AppDev
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../MLAI/" class="md-nav__link">
+        ML&AI
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Coding/" class="md-nav__link">
+        Coding
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Community%20Service/" class="md-nav__link">
+        CommunityService
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Research/" class="md-nav__link">
+        Research
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ACM%20Gallery/" class="md-nav__link">
+        Gallery
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+  
+  
+
+
+
+<h1 id="mathematics-in-machine-learning">Mathematics in Machine Learning</h1>
+<h1 id="introduction">Introduction</h1>
+<p>Machine Learning is a division of AI that focuses on building applications by processing available data accurately. The primary aim of machine learning is to help computers process calculations without human intervention.</p>
+<p>The question that arises here is, so how do we feed the data to the machine? How would the machine now perform operations on this dataset and provide precise results? This is where mathematics comes into play.</p>
+<p>To all those who are thinking, “What’s the use of learning the mathematics behind machine learning algorithms? We can easily use the widely available libraries in Python and R to build models!” While that is true, it is vital to note that these libraries and functions themselves work on the basis of mathematical concepts. Without understanding the ‘why’s’ and ‘how’s’ behind the code, one can never truly appreciate the beautiful field of Artificial Intelligence or any computer science domain for that matter.</p>
+<p>There are four pillars of mathematical support to ML. Let us now tackle each of these, one by one.</p>
+<p><img alt="" src="https://miro.medium.com/max/1050/1*3kRFSOuCp5aL15vE_rOx7g.png" /></p>
+<h1 id="linear-algebra">Linear Algebra</h1>
+<p>Linear algebra can transform datasets into matrices on which several operations can be performed.  <strong>NumPy</strong>  is such a library used in Machine Learning which performs several operations on N-dimensional array.</p>
+<p>In machine learning, you fit a model on a dataset. This is the table-like set of numbers where each row represents an observation and each column represents a feature of the observation. For example, below is a snippet of the  <a href="https://archive.ics.uci.edu/ml/datasets/Iris">Iris flowers dataset</a>:</p>
+<p><img alt="" src="https://miro.medium.com/max/1050/1*_JPyqI3BI14oVWxF5DqvZw.png" /></p>
+<p>Iris flower dataset</p>
+<p>This data is in fact a matrix: a key data structure in linear algebra.</p>
+<p>Further, when you split the data into inputs and outputs to fit a supervised machine learning model, such as the measurements and the flower species, you have a matrix (X) and a vector (y). The vector is another key data structure in linear algebra.</p>
+<p>While working with images or photographs in computer vision applications, each image that you work with is itself a table structure with a width and height and one pixel value in each cell whose value ranges from 0 to 255. In case of black and white images there is one channel and in case of RBG there are three channels. A photo is yet another example of a matrix from linear algebra. Operations on the image, such as cropping, scaling, shearing, and so on are all described using the notation and operations of linear algebra which takes us to the next section of datasets — performing operations on them.</p>
+<p>Linear regression is a method from statistics for describing the relationships between variables. It uses a linear algebra notation — <strong>y=Ab</strong>. Where y is the output variable, A is the dataset and b are the model coefficients. There are many ways to describe and solve the linear regression problem, i.e. finding a set of coefficients that when multiplied by each of the input variables and added together results in the best prediction of the output variable. One such method is SVD (<strong>Singular value decomposition)</strong></p>
+<p>SVD deals with decomposing a matrix into a product of 3 matrices as shown:</p>
+<p><img alt="" src="https://miro.medium.com/max/318/1*uOUqVTdZHCk-PH6s73DsvA.jpeg" /></p>
+<p>If the dimensions of A are m x n:</p>
+<ul>
+<li>U is an m x m matrix of Left Singular Vectors</li>
+<li>S is an m x n rectangular diagonal matrix of Singular Values arranged in decreasing order</li>
+<li>V is an n x n matrix of Right Singular Vector</li>
+</ul>
+<p>This decomposition allows us to express our  <em>original matrix as a linear combination of low-rank matrices</em>.</p>
+<p><img alt="" src="https://miro.medium.com/max/1050/1*v16suDvxEBIHYZ8m_vmuOA.jpeg" /></p>
+<p><strong>Note:</strong>  The rank of a matrix is the maximum number of linearly independent row (or column) vectors in the matrix. A vector  <strong>r</strong>  is said to be linearly independent of vectors  <strong>r1</strong>  and <strong>r2</strong>  if it cannot be expressed as a linear combination of  <strong>r1</strong>  and  <strong>r2</strong>. (i.e. r ≠ ar1 + br2)</p>
+<p>Thus, the rank of a matrix can be thought of as a representative of the amount of unique information represented by the matrix. Higher the rank, higher the information.</p>
+<p>In a practical application, you will observe that only the first few, say k, singular values are large. The rest of the singular values approach zero. As a result, terms except the first few can be ignored without losing much of the information. See how the matrices are truncated in the figure below:</p>
+<p><img alt="" src="https://miro.medium.com/max/1050/1*vsVAhvV-HLc0TUpnoP_LZA.jpeg" /></p>
+<p>Once we have established the required SVD jargon, we can use it to find approximate solutions for real-world problems. In this example, I am going to use the  <a href="https://scikit-learn.org/stable/modules/generated/sklearn.datasets.load_boston.html">Boston house-prices dataset</a>. The house-prices data matrix A contains 506 rows (representing individual houses), and 13 columns (each describing a different characteristic of the houses). Some of these 13 features include:</p>
+<p>· Per capita crime rate by town</p>
+<p>· The average number of rooms per dwelling</p>
+<p>· Weighted distances to five Boston employment centers</p>
+<p>We want to predict the median value home price in $1000’s. These measurements are real values ranging from 5 to 50, and they represent the b vector in our system of equations Ax=b.</p>
+<p>As usual, the matrix has many more rows than columns. This means that we cannot invert A to find the solution to Ax= b. Also, it drastically reduces the possibilities of finding a solution. Indeed, such a solution would only be possible if b is a linear combination of the columns of A. However, using the SVD, we will be able to derive the pseudo-inverse A+, to find the best approximate solution in terms of least squares — which is the projection of the vector b onto the subspace spanned by the columns of A.</p>
+<p>Applications of SVD in Image Processing</p>
+<p><em>Face Recognition:</em></p>
+<ol>
+<li>
+<p>Collect a training set of faces as the training set</p>
+</li>
+<li>
+<p>Find the most important features by finding the directions of maximum variance — the eigenvectors or the eigenfaces.</p>
+</li>
+</ol>
+<p><em>(Note: If non-zero e is an eigenvector of the 3 by 3 matrix A, then (Ae=λe) for some scalar. This scalar is called an eigenvalue of A. This may be rewritten as Ae=λIe and in turn as (A−λI)e=0 . The value of lambda which satisfies this equation is eigenvalue and the corresponding vector values after substituting it back into the matrix equation are the eigenvectors)</em></p>
+<ol>
+<li>
+<p>Choose top M eigenfaces corresponding to the highest eigenvalues. These eigenfaces now define a new face space</p>
+</li>
+<li>
+<p>Project all the data in this face space</p>
+</li>
+<li>
+<p>For a new face, project it into the new face space, find the closest face(s) in the space, and classify the face as a known or an unknown face</p>
+</li>
+</ol>
+<p><img alt="" src="https://miro.medium.com/max/1050/1*kBdOn7TPqG9xjI0bplASqg.jpeg" /></p>
+<p>Results after using above algorithm for face detection</p>
+<p><em>Special Clustering:</em></p>
+<p><a href="https://www.analyticsvidhya.com/blog/2016/11/an-introduction-to-clustering-and-different-methods-of-clustering/?utm_source=blog&amp;utm_medium=5-applications-singular-value-decomposition-svd-data-science">Clustering</a>  is the task of grouping similar objects together. It is an unsupervised machine learning technique. Consider the below case:</p>
+<p><img alt="" src="https://miro.medium.com/max/575/1*RdAQFUG-Wwn-BCqL2qQ3XQ.jpeg" /></p>
+<p>Using SVD, we can obtain the following result.</p>
+<p><img alt="" src="https://miro.medium.com/max/575/1*BnxyDZx0nBWAKqD-xPYodg.jpeg" /></p>
+<p>These are the basic steps to obtain the above result:</p>
+<ul>
+<li>Start with the  <strong>Affinity matrix (A)</strong>  or the  <strong>Adjacency matrix</strong>  of the data. This represents how similar one object is to another. In a graph, this would represent if an edge existed between the points or not</li>
+<li>Find the  <strong>Degree matrix (D)</strong>  of each object. This is a diagonal matrix with entry  <strong><em>(i,i)</em></strong> equal to the number of objects object  <strong><em>i</em></strong>  is similar to</li>
+<li>Find the  <strong>Laplacian (L)</strong>  of the Affinity Matrix:  <strong>L = A — D</strong></li>
+<li>Find the highest  <strong><em>k</em></strong>  eigenvectors of the Laplacian Matrix depending on their eigenvalues</li>
+<li>Run <strong><em>k-means</em></strong>  on these eigenvectors to cluster the objects into k classes</li>
+</ul>
+<h1 id="calculus">Calculus</h1>
+<p>In Machine Learning, we try to find the inputs which enable a function to best match the data. The slope or descent describes the rate of change off the output with respect to an input. Determining the influence of each input on the output is also one of the critical tasks. All this requires a solid understanding of Multivariate Calculus.</p>
+<p><strong>Gradient descent algorithm:</strong></p>
+<p>Let’s say you are playing a game where the players are at the top of a mountain, and they are asked to reach the lowest point of the mountain. Additionally, they are blindfolded. So, what approach do you think would make you reach the lake?</p>
+<p>The best way is to observe the ground and find where the land descends. From that position, take a step in the descending direction and iterate this process until we reach the lowest point.</p>
+<p>Similarly, given a cost function, the goal of the gradient descent algorithm is to minimize the given function (say cost function). To achieve this goal, it performs two steps iteratively:</p>
+<ol>
+<li>Compute the gradient  (slope), the first order derivative of the function at that point</li>
+<li>Make a step (move) in the direction opposite to the gradient, opposite direction of slope increases from the current point by alpha times the gradient at that point</li>
+</ol>
+<p><img alt="" src="https://miro.medium.com/max/413/1*qDMLaL4wyB47Kb9uZNxSmw.png" /></p>
+<p><em>Alpha is called</em> <strong><em>Learning rate</em></strong> <em>— a tuning parameter in the optimization process. It decides the length of the steps.</em></p>
+<p><strong>Back-propagation algorithm :</strong></p>
+<p>The  <strong>Back propagation algorithm in neural network</strong>  computes the gradient of the loss function for a single weight by the chain rule. It efficiently computes one layer at a time, output for every  <strong>neuron</strong>  from the input layer, to the hidden layers, to the output layer.</p>
+<p>Let us have an artificial neural network module with n layers. Each layer ‘i’ has a weight of ‘Wi’ and outputs are calculated by matrix multiplications between inputs and weights. So, for instance, if we set up the input to the artificial neural network as ‘X0,’ then we have the output of the first layer as:</p>
+<p><img alt="" src="https://miro.medium.com/max/567/1*GhchKg5Gv1i8Cba0HK9oDQ.png" /></p>
+<p>Where ‘X0’ is the input to the module, ‘W1’ is the weight for the first layer and ‘F1’ is the activation function for the first layer. So, the output of the nth and last layer of a network can be defined as:</p>
+<p><img alt="" src="https://miro.medium.com/max/455/1*NFp6N33lolAN8NvQoHNRBw.png" /></p>
+<p>Where ‘X(n-1)’ is the input to the layer ‘n,’ ‘Wn’ is the weight for the layer ’n’ and ‘Fn’ is the activation function for the same layer. Now, let us define a loss function ‘L’ that compares the outputs ‘Xn’ with the ground truth ‘G.’ So, the error ‘E’ can be expressed as E = L(G,Xn). Differentiating with respect to weight ‘Wn,’ we get:</p>
+<p><img alt="" src="https://miro.medium.com/max/1050/1*v57KePOhgDh2sGfWqFU-pg.jpeg" /></p>
+<p>Using the same logic, we can get the generalized series for the (n-1)th layer as well. It is important to note here that ‘Wn’ does not update as soon as the gradient is calculated, it waits for the gradients of all of the weights to be calculated and then all the weights are updated together. As a result of this, the ‘Wn’ term in the in the (n-1) differential still points to the weights before the update.</p>
+<h1 id="statistics-probability">Statistics &amp; Probability</h1>
+<p>After working on dataset and optimization next step is to analyze the result. This is where statistics — specifically, graphical representations are helpful. It gives an insight into the accuracy of the trained model. While probability in general helps us understand whether the points in our dataset are perfectly fitting, overfitting or underfitting in the model, we will discuss one algorithm in particular.</p>
+<p><strong>Naive Bayes Algorithm:</strong></p>
+<p>The fundamental Naive Bayes assumption is that each feature makes an:</p>
+<p>· independent</p>
+<p>· equal</p>
+<p>Now, before moving to the formula for Naive Bayes, it is important to know about Bayes’ theorem. Bayes’ Theorem finds the probability of an event occurring given the probability of another event that has already occurred. Bayes’ theorem is stated mathematically as the following equation:</p>
+<p><img alt="" src="https://miro.medium.com/max/818/1*mZkrLdUqtYQyzvlTRZohDA.png" /></p>
+<p>This can be rewritten mathematically for the purpose of calculating desirable classes from a large number of datasets. For instance, if we have a dataset on the predictability of a match happening with a few parameters, it is basically bayes theorem.</p>
+<p><img alt="" src="https://miro.medium.com/max/1050/1*OW89591sTr5Q38LnGG8g-Q.jpeg" /></p>
+<p>Here x1,x2….xn represent the dependent features and y is class variable. By substituting for  <strong>X ,</strong> expanding using the chain rule and inserting proportionality since denominator is constant, we can obtain a function to predict results.</p>
+<h1 id="summary">Summary</h1>
+<p>Math and machine learning are inseparable. A true AI scientist always has his math right. Hope this blog gave all of you an insight on the vitality of understanding the nuances math can offer to machine learning and delve deeper into it.</p>
+<h1 id="bibliography">Bibliography</h1>
+<p><a href="http://cs231n.stanford.edu/slides/2018/cs231n_2018_ds02.pdf">cs231n.stanford.edu/slides/2018/cs231n_2018_ds02.pdf</a></p>
+<p><a href="https://web.mat.upc.edu/toni.susin/files/LinearAlgebraSVD.pdf">LinearAlgebraSVD.pdf (upc.edu)</a></p>
+<p><a href="https://machinelearningmastery.com/examples-of-linear-algebra-in-machine-learning/">10 Examples of Linear Algebra in Machine Learning (machinelearningmastery.com)</a></p>
+<p><a href="https://machinelearningmastery.com/classification-as-conditional-probability-and-the-naive-bayes-algorithm/">How to Develop a Naive Bayes Classifier from Scratch in Python (machinelearningmastery.com)</a></p>
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+        </div>
+        
+          <a href="#" class="md-top md-icon" data-md-component="top" hidden>
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12Z"/></svg>
+            Back to top
+          </a>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      &copy; 2022 <a href="https://github.com/acmmanipal"  target="_blank" rel="noopener">ACM Manipal</a>
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+        <div class="md-social">
+  
+    
+    
+      
+      
+    
+    <a href="https://github.com/acmmanipal" target="_blank" rel="noopener" title="github.com" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 480 512"><!--! Font Awesome Free 6.2.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M186.1 328.7c0 20.9-10.9 55.1-36.7 55.1s-36.7-34.2-36.7-55.1 10.9-55.1 36.7-55.1 36.7 34.2 36.7 55.1zM480 278.2c0 31.9-3.2 65.7-17.5 95-37.9 76.6-142.1 74.8-216.7 74.8-75.8 0-186.2 2.7-225.6-74.8-14.6-29-20.2-63.1-20.2-95 0-41.9 13.9-81.5 41.5-113.6-5.2-15.8-7.7-32.4-7.7-48.8 0-21.5 4.9-32.3 14.6-51.8 45.3 0 74.3 9 108.8 36 29-6.9 58.8-10 88.7-10 27 0 54.2 2.9 80.4 9.2 34-26.7 63-35.2 107.8-35.2 9.8 19.5 14.6 30.3 14.6 51.8 0 16.4-2.6 32.7-7.7 48.2 27.5 32.4 39 72.3 39 114.2zm-64.3 50.5c0-43.9-26.7-82.6-73.5-82.6-18.9 0-37 3.4-56 6-14.9 2.3-29.8 3.2-45.1 3.2-15.2 0-30.1-.9-45.1-3.2-18.7-2.6-37-6-56-6-46.8 0-73.5 38.7-73.5 82.6 0 87.8 80.4 101.3 150.4 101.3h48.2c70.3 0 150.6-13.4 150.6-101.3zm-82.6-55.1c-25.8 0-36.7 34.2-36.7 55.1s10.9 55.1 36.7 55.1 36.7-34.2 36.7-55.1-10.9-55.1-36.7-55.1z"/></svg>
+    </a>
+  
+    
+    
+      
+      
+    
+    <a href="https://medium.com/the-acm-manipal-blog" target="_blank" rel="noopener" title="medium.com" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512"><!--! Font Awesome Free 6.2.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M180.5 74.262C80.813 74.262 0 155.633 0 256s80.819 181.738 180.5 181.738S361 356.373 361 256 280.191 74.262 180.5 74.262Zm288.25 10.646c-49.845 0-90.245 76.619-90.245 171.095s40.406 171.1 90.251 171.1 90.251-76.619 90.251-171.1H559c0-94.503-40.4-171.095-90.248-171.095Zm139.506 17.821c-17.526 0-31.735 68.628-31.735 153.274s14.2 153.274 31.735 153.274S640 340.631 640 256c0-84.649-14.215-153.271-31.742-153.271Z"/></svg>
+    </a>
+  
+    
+    
+      
+      
+    
+    <a href="https://www.linkedin.com/school/acm-manipal/mycompany/" target="_blank" rel="noopener" title="www.linkedin.com" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.2.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M416 32H31.9C14.3 32 0 46.5 0 64.3v383.4C0 465.5 14.3 480 31.9 480H416c17.6 0 32-14.5 32-32.3V64.3c0-17.8-14.4-32.3-32-32.3zM135.4 416H69V202.2h66.5V416zm-33.2-243c-21.3 0-38.5-17.3-38.5-38.5S80.9 96 102.2 96c21.2 0 38.5 17.3 38.5 38.5 0 21.3-17.2 38.5-38.5 38.5zm282.1 243h-66.4V312c0-24.8-.5-56.7-34.5-56.7-34.6 0-39.9 27-39.9 54.9V416h-66.4V202.2h63.7v29.2h.9c8.9-16.8 30.6-34.5 62.9-34.5 67.2 0 79.7 44.3 79.7 101.9V416z"/></svg>
+    </a>
+  
+    
+    
+      
+      
+    
+    <a href="https://www.instagram.com/acm_manipal/" target="_blank" rel="noopener" title="www.instagram.com" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.2.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M224.1 141c-63.6 0-114.9 51.3-114.9 114.9s51.3 114.9 114.9 114.9S339 319.5 339 255.9 287.7 141 224.1 141zm0 189.6c-41.1 0-74.7-33.5-74.7-74.7s33.5-74.7 74.7-74.7 74.7 33.5 74.7 74.7-33.6 74.7-74.7 74.7zm146.4-194.3c0 14.9-12 26.8-26.8 26.8-14.9 0-26.8-12-26.8-26.8s12-26.8 26.8-26.8 26.8 12 26.8 26.8zm76.1 27.2c-1.7-35.9-9.9-67.7-36.2-93.9-26.2-26.2-58-34.4-93.9-36.2-37-2.1-147.9-2.1-184.9 0-35.8 1.7-67.6 9.9-93.9 36.1s-34.4 58-36.2 93.9c-2.1 37-2.1 147.9 0 184.9 1.7 35.9 9.9 67.7 36.2 93.9s58 34.4 93.9 36.2c37 2.1 147.9 2.1 184.9 0 35.9-1.7 67.7-9.9 93.9-36.2 26.2-26.2 34.4-58 36.2-93.9 2.1-37 2.1-147.8 0-184.8zM398.8 388c-7.8 19.6-22.9 34.7-42.6 42.6-29.5 11.7-99.5 9-132.1 9s-102.7 2.6-132.1-9c-19.6-7.8-34.7-22.9-42.6-42.6-11.7-29.5-9-99.5-9-132.1s-2.6-102.7 9-132.1c7.8-19.6 22.9-34.7 42.6-42.6 29.5-11.7 99.5-9 132.1-9s102.7-2.6 132.1 9c19.6 7.8 34.7 22.9 42.6 42.6 11.7 29.5 9 99.5 9 132.1s2.7 102.7-9 132.1z"/></svg>
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.tabs", "navigation.sections", "toc.integrate", "navigation.top"], "search": "../../assets/javascripts/workers/search.e5c33ebb.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.ba449ae6.min.js"></script>
+      
+        <script src="../../javascripts/mathjax.js"></script>
+      
+        <script src="https://polyfill.io/v3/polyfill.min.js"></script>
+      
+        <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+      
+    
+  </body>
+</html>
