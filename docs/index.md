@@ -13,7 +13,7 @@ We’ll be putting up helpful and interesting articles written by our members ov
 - [Implementing A Deep-Learning Model On A Self-Driving Car]()
 - [Decoding the world of Python libraries](./blogs/DecodingPythonLib.md)
 - [Introduction To 3D Computer Graphics]()
-- [Mathematics in Machine Learning]()
+- [Mathematics in Machine Learning](./blogs/MathematicsML.md)
 - [C++ tips to get around TLE]()
 - [Navigating Through Graphs]()
 - [Breaking the Ice with Graphs]()
@@ -28,7 +28,8 @@ This Blog will hopefully give you all the resources to start your coding journey
 
 - [WebDev](./WebDev.md)
 - [AppDev](./AppDev.md)
-- [ML and AI](./ML%20and%20AI.md)
+- [ML and AI](./MLAI.md)
 - [Coding](./Coding.md)
 - [Community Service](./Community%20Service.md)
 - [Research](./Research.md)
+- [Gallery](./ACM%20Gallery.md)
