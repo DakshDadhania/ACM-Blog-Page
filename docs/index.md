@@ -14,9 +14,9 @@ We’ll be putting up helpful and interesting articles written by our members ov
 - [Decoding the world of Python libraries](./blogs/DecodingPythonLib.md)
 - [Introduction To 3D Computer Graphics]()
 - [Mathematics in Machine Learning](./blogs/MathematicsML.md)
-- [C++ tips to get around TLE]()
-- [Navigating Through Graphs]()
-- [Breaking the Ice with Graphs]()
+- [C++ tips to get around TLE](./blogs/TLE.md)
+- [Navigating Through Graphs](./blogs/navigation_through_graphs.md)
+- [Breaking the Ice with Graphs](./blogs/breaking_the%20_ice_with_graphs.md)
 
 
 
